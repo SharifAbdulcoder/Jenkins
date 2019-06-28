@@ -22,7 +22,7 @@ node('master') {
              sh "terraform apply  --auto-approve"
            }
 
-      } else: {
+      }  else: {
             dir("$${WORKSPACE}/Jenkins/artemis_tf/"){
               sh "terraform plan"
             }
