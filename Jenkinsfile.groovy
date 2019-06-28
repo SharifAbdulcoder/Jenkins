@@ -10,28 +10,28 @@ node('master') {
   }
 
    stage("Terraform init") {
-     dir("${WORKSPACE}/Jenkins/artemis_tf") {
+     dir("${WORKSPACE}/artemis_tf") {
        sh "terraform init"
      }
    }
 
    stage('Terraform Apply/Plan') {
          if (params.Terraform_Apply) {
-           dir("${WORKSPACE}/Jenkins/artemis_tf/") {
+           dir("${WORKSPACE}/artemis_tf/") {
              echo "##### Terraform Applying the Changes ####"
              sh "terraform apply  --auto-approve"
            }
         }
 
           else {
-            dir("${WORKSPACE}/Jenkins/artemis_tf/"){
+            dir("${WORKSPACE}/artemis_tf/"){
               sh "terraform plan"
             }
           }
     }
     stage('Terraform Destoy') {
           if (params.Terraform_Destroy) {
-            dir("${WORKSPACE}/Jenkins/artemis_tf") {
+            dir("${WORKSPACE}/artemis_tf") {
               sh "terraform destroy  --auto-approve"
             }
           }
