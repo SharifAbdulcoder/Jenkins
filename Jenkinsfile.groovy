@@ -21,13 +21,14 @@ node('master') {
              echo "##### Terraform Applying the Changes ####"
              sh "terraform apply  --auto-approve"
            }
+        }
 
-      }  else: {
+          else: {
             dir("$${WORKSPACE}/Jenkins/artemis_tf/"){
               sh "terraform plan"
             }
           }
-        }
+    }
     stage('Terraform Destoy') {
           if (params.Terraform_Destroy) {
             dir("${WORKSPACE}/Jenkins/artemis_tf") {
