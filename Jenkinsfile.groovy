@@ -65,8 +65,13 @@ node('master') {
              echo "##### Terraform Applying the Changes ####"
              sh "terraform apply  --auto-approve"
            }
-        }
+      }  else {
+        dir("${WORKSPACE}/google_grafana/") {
+          echo "##### Terraform Plan (Check) the Changes ####"
+          sh "terraform plan -var-file=grafana.tfvars"
+      }
     }
+  }
 
     stage('Terraform Destoy') {
          if (params.Terraform_Destroy) {
