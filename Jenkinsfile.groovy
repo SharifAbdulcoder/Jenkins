@@ -24,7 +24,7 @@ node('master') {
         }
 
           else {
-            dir("$${WORKSPACE}/Jenkins/artemis_tf/"){
+            dir("${WORKSPACE}/Jenkins/artemis_tf/"){
               sh "terraform plan"
             }
           }
