@@ -10,7 +10,7 @@ node('master') {
   }
 
    stage("Terraform init") {
-     dir("${WORKSPACE}/Jenkins/") {
+     dir("${WORKSPACE}/Jenkins/artemis_tf") {
        sh "terraform init"
      }
    }
