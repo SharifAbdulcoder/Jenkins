@@ -22,18 +22,18 @@ node('master') {
              sh "terraform apply  --auto-approve"
            }
         }
-
+      }
           else {
             dir("${WORKSPACE}/artemis_tf/"){
               sh "terraform plan"
             }
           }
-    }
+          
     stage('Terraform Destoy') {
           if (params.Terraform_Destroy) {
             dir("${WORKSPACE}/artemis_tf") {
               sh "terraform destroy  --auto-approve"
             }
           }
-    }
+      }
 }
