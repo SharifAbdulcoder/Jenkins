@@ -66,9 +66,8 @@ node('master') {
              sh "terraform apply  --auto-approve"
            }
       }  else {
-        dir("${WORKSPACE}/google_grafana/") {
-          echo "##### Terraform Plan (Check) the Changes ####"
-          sh "terraform plan -var-file=grafana.tfvars"
+        dir("${WORKSPACE}/artemis_tf/") {
+          sh "terraform plan"
       }
     }
   }
