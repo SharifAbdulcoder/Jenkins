@@ -28,7 +28,7 @@ node('master') {
               sh "terraform plan"
             }
           }
-          
+
     stage('Terraform Destoy') {
           if (params.Terraform_Destroy) {
             dir("${WORKSPACE}/artemis_tf") {
