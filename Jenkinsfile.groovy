@@ -46,8 +46,8 @@
 //
 
 node('master') {
-  properties([parameters([choice(choices: ['DEV', 'QA', 'STAGE', 'PROD'], description: 'please choose environment', name: 'ENV')])])
   properties([parameters([booleanParam(defaultValue: true, description: 'This will do terraform apply', name: 'Terraform_Apply'), booleanParam(defaultValue: false, description: 'This will do terraform destroy', name: 'Terraform_Destroy')])])
+  properties([parameters([choice(choices: ['DEV', 'QA', 'STAGE', 'PROD'], description: 'please choose environment', name: 'ENV')])])
 
     stage('Clone repo') {
     git 'https://github.com/SharifAbdulcoder/Jenkins.git'
