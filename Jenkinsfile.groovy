@@ -1,6 +1,6 @@
 
 node('master') {
-  properties([parameters([booleanParam(defaultValue: false, description: '', name: 'Terraform_Apply')])])
+  properties([parameters([booleanParam(defaultValue: false, description: 'This runs "terraform apply"', name: 'Terraform_Apply')])])
   properties([parameters([booleanParam(defaultValue: false, description: '', name: 'Terraform_Destroy')])])
   properties([parameters([choice(choices: ['DEV', 'QA', 'STAGE', 'PROD'], description: 'please choose environment', name: 'ENV')])])
 
