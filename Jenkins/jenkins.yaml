@@ -1,0 +1,59 @@
+---
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+      name: jenkins
+  template:
+    metadata:
+      labels:
+        app: jenkins
+        name: jenkins
+    spec:
+      containers:
+      - stdin: true
+        tty: true
+        name: jenkins
+        imagePullPolicy: Always
+        image: fsadykov/centos_jenkins:0.2
+        ports:
+        - containerPort: 8080
+        - containerPort: 50000
+
+      #   volumeMounts:
+      #
+      #     - mountPath: /var/run
+      #       name: docker-sock
+      #
+      #     - mountPath: /root/.jenkins
+      #       name: jenkins-home
+      # volumes:
+      #   - name: docker-sock
+      #     hostPath:
+      #       path: /var/run
+      #   - name: jenkins-home
+      #     persistentVolumeClaim:
+      #       claimName: jenkins-home
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: jenkins
+    name: jenkins
+  name: jenkins
+spec:
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: jenkins
+    name: jenkins
+  type: LoadBalancer

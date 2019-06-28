@@ -1,0 +1,36 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: artemis
+  labels:
+    run: artemis
+spec:
+  ports:
+  - port: 80
+    targetPort: 5000
+    protocol: TCP
+  selector:
+    run: artemis
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: artemis
+spec:
+  selector:
+    matchLabels:
+      run: artemis
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: artemis
+    spec:
+      containers:
+      - name: artemis
+        image: 50364747/artemis:v1
+        ports:
+        - containerPort: 80
