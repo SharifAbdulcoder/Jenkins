@@ -32,7 +32,7 @@ spec:
         tty: true
         name: jenkins
         imagePullPolicy: Always
-        image: jenkins
+        image: fsadykov/centos_jenkins:0.2
         ports:
         - containerPort: 8080
         - containerPort: 50000
