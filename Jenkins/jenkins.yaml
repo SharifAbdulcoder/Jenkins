@@ -1,3 +1,21 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tools
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jenkins-home
+  namespace: tools
+  labels:
+    name: jenkins
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
 ---
 apiVersion: apps/v1beta2
 kind: Deployment
@@ -20,26 +38,17 @@ spec:
         tty: true
         name: jenkins
         imagePullPolicy: Always
-        image: fsadykov/centos_jenkins:0.2
+        image: jenkins
         ports:
         - containerPort: 8080
         - containerPort: 50000
-
-      #   volumeMounts:
-      #
-      #     - mountPath: /var/run
-      #       name: docker-sock
-      #
-      #     - mountPath: /root/.jenkins
-      #       name: jenkins-home
-      # volumes:
-      #   - name: docker-sock
-      #     hostPath:
-      #       path: /var/run
-      #   - name: jenkins-home
-      #     persistentVolumeClaim:
-      #       claimName: jenkins-home
-
+      volumes:
+        - name: docker-sock
+          hostPath:
+            path: /var/run
+        - name: jenkins-home
+          persistentVolumeClaim:
+            claimName: jenkins-home
 ---
 apiVersion: v1
 kind: Service
