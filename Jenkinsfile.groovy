@@ -13,9 +13,8 @@ pipeline {
       }
     }
   }
-
-
-  stage('Download Terraform') {
+  stages('Download Terraform') {
+    stage('Download Terraform') {
     steps {
       ws("tmp/")
       sh '''
@@ -25,6 +24,6 @@ pipeline {
       sudo mv terraform /bin/
       '''
     }
-
+   }
   }
 }
