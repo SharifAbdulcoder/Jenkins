@@ -69,4 +69,9 @@ pipeline{
             }
         }
     }
+    post{
+      success {
+          mail to:  "abdugoifir@gmail.com", subject: "job", body: "job completed"
+        }
+    }
 }
