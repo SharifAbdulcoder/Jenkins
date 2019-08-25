@@ -13,4 +13,15 @@ pipeline {
       }
     }
   }
+
+
+  stage('Download Terraform') {
+    steps {
+      ws("/tmp")
+      sh '''
+      pwd
+      '''
+    }
+
+  }
 }
