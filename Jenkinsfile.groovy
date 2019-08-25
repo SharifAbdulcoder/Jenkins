@@ -5,7 +5,7 @@ pipeline{
             steps{
                 sh '''
                 set +xe
-                echo Hello
+                echo "Hello, ... Its me"
                 ech  Error
                 sudo yum install httpd wget unzip -y
                 ping -c 4 google.com
