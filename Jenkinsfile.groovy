@@ -5,8 +5,8 @@ pipeline{
             steps{
                 sh '''
                 set +xe
-                echo "Hello"
-                ech  "Herro"
+                echo Hello
+                ech  Error
                 sudo yum install httpd wget unzip -y
                 ping -c 4 google.com
                 '''
@@ -28,6 +28,14 @@ pipeline{
                             sh "terraform version"
                         }
                     }
+                }
+            }
+        }
+        stage("Write to a file"){
+            steps{
+                ws("tmp/"){
+                    writeFile text: "Test"\n "line2", file: "TestFile"
+                    sh "cat TestFile"
                 }
             }
         }
