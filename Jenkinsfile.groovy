@@ -13,7 +13,7 @@ pipeline {
       }
     }
   }
-  stages('Download Terraform') {
+  stages {
     stage('Download Terraform') {
       steps {
         ws("tmp/")
