@@ -28,14 +28,12 @@ node('master') {
              sh "terraform plan"
              }
            }
-           stage("Terraform apply"){
-             if (!params.terraform-destroy) {
-                 if (params.terraform-apply) {
-                   dir("${WORKSPACE}/project_1/") {
-                     echo "#### Terraform Applying the Changes #####"
-                     sh "terraform apply --auto-approve"
-                   }
-                 }
-               }
-             }
+    stage("Terraform apply"){
+            dir("${WORKSPACE}/project_1/") {
+              echo "#### Terraform Applying the Changes #####"
+              sh "terraform apply --auto-approve"
            }
+         }
+       }
+     }
+   }
