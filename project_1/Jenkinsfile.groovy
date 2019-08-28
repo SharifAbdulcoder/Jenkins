@@ -1,5 +1,5 @@
 node('master') {
-  properties([parameters([booleanParam(defaultValue: false, description: 'terraform apply', name: 'terraform-apply')])])
+  // properties([parameters([booleanParam(defaultValue: false, description: 'terraform apply', name: 'terraform-apply')])])
     stage('Clone repo') {
       git 'https://github.com/SharifAbdulcoder/Jenkins.git'
     }
