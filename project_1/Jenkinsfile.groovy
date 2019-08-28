@@ -1,6 +1,6 @@
 node('master') {
   stage('Clone repo') {
-    git 'https://github.com/SharifAbdulcoder/Resume_app.git'
+    git 'https://github.com/SharifAbdulcoder/Jenkins.git'
   }
 
   stage('Check terraform') {
