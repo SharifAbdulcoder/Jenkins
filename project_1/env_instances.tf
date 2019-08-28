@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "Dev" {
-  ami                         = "ami-02eac2c0129f6376b}"
+  ami                         = "ami-0b898040803850657}"
   instance_type               = "t2.micro"
   key_name                    = "jenkins_key}"
   subnet_id                   = "subnet-838061ce"
@@ -11,7 +11,7 @@ resource "aws_instance" "Dev" {
 }
 
 resource "aws_instance" "QA" {
-  ami                         = "ami-02eac2c0129f6376b}"
+  ami                         = "ami-0b898040803850657}"
   instance_type               = "t2.micro"
   key_name                    = "jenkins_key}"
   subnet_id                   = "subnet-b55b50ba"
@@ -19,7 +19,7 @@ resource "aws_instance" "QA" {
 }
 
 resource "aws_instance" "PROD" {
-  ami                         = "ami-02eac2c0129f6376b}"
+  ami                         = "ami-0b898040803850657}"
   instance_type               = "t2.micro"
   key_name                    = "jenkins_key}"
   subnet_id                   = "subnet-cd257791"
