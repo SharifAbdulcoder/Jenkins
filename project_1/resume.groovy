@@ -9,7 +9,7 @@ node{
     stage("Pull Repo"){
       try {
          // Trying to run terraform command
-         env.repo  = sh returnStdout: true, script: 'ls  home/ec2-user/Resume_app'
+         env.repo  = sh returnStdout: true, script: 'ls  /home/ec2-user/Resume_app'
          echo """
          echo repo exists  ${env.terraform}
          """
