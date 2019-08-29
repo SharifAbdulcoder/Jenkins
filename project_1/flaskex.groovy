@@ -12,7 +12,7 @@ node{
    }
 
     stage("Pull Repo"){
-        sh "ssh  ec2-user@${ENVIR} git clone https://github.com/anfederico/Flaskex.git"
+        sh "ssh  ec2-user@${ENVIR} git clone https://github.com/SharifAbdulcoder/Flaskex.git"
     }
     stage("Install Requirements"){
         //sh "virtualenv /tmp/venv"
