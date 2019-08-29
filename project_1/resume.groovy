@@ -4,7 +4,7 @@ node{
         sh "echo Parameter added"
     }
     stage("Install git"){
-        sh "ssh  ec2-user@${ENVIR} sudo yum install python3.7 python37 git -y"
+        sh "ssh  ec2-user@${ENVIR} sudo yum install python-pip python3.7 python37 git -y"
     }
 
     stage("Remove repo"){
