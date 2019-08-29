@@ -7,12 +7,12 @@ node{
         sh "ssh  ec2-user@${ENVIR} sudo yum install python-pip git -y"
     }
 
-   //  stage("Remove repo"){
-   //     sh "ssh  ec2-user@${ENVIR} sudo  rm -rf /home/ec2-user/stormpath-flask-sample"
-   // }
+    stage("Remove repo"){
+       sh "ssh  ec2-user@${ENVIR} sudo  rm -rf /home/ec2-user/stormpath-flask-sample"
+   }
 
     stage("Pull Repo"){
-        sh "ssh  ec2-user@${ENVIR} git clone https://github.com/farrukh90/stormpath-flask-sample.git 2> /dev/null"
+        sh "ssh  ec2-user@${ENVIR} git clone https://github.com/farrukh90/stormpath-flask-sample.git"
     }
     stage("Pip Install"){
         sh "ssh  ec2-user@${ENVIR} sudo pip install -r /home/ec2-user/stormpath-flask-sample/requirements.txt"
