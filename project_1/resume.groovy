@@ -23,6 +23,6 @@ node{
         sh "ssh  ec2-user@${ENVIR} sudo pip install -r /home/ec2-user/Resume_app/requirements.txt"
     }
     stage("Run App"){
-        sh "ssh  ec2-user@${ENVIR} sudo python3 /home/ec2-user/Resume_app/simple.py"
+        sh "ssh  ec2-user@${ENVIR} sudo python /home/ec2-user/Resume_app/simple.py"
     }
 }
