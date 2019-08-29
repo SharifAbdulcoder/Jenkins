@@ -4,7 +4,7 @@ node{
         sh "echo Parameter added"
     }
     stage("Install git"){
-        sh "ssh  ec2-user@${ENVIR} sudo yum install git python-pip -y"
+        sh "ssh  ec2-user@${ENVIR} sudo yum install git python-pip3 -y"
     }
     stage("Pull Repo"){
         sh "ssh  ec2-user@${ENVIR} git clone https://github.com/SharifAbdulcoder/Resume_app.git"
@@ -18,6 +18,6 @@ node{
         sh "ssh  ec2-user@${ENVIR} pip install -r /home/ec2-user/Resume_app/requirements.txt"
     }
     stage("Run App"){
-        sh "ssh  ec2-user@${ENVIR}  python /home/ec2-user/Resume_app/simple.py"
+        sh "ssh  ec2-user@${ENVIR}  python3 /home/ec2-user/Resume_app/simple.py"
     }
 }
