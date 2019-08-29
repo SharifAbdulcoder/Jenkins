@@ -12,7 +12,7 @@ node{
    }
 
    stage("Remove PID"){
-        sh "ssh  ec2-user@${ENVIR} sudo sudo kill -9 $(pidof python)"
+        sh "ssh  ec2-user@${ENVIR} sudo kill -9 $(pidof python)"
     }
 
     stage("Pull Repo"){
